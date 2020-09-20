@@ -1,0 +1,16 @@
+Class/Trigger Name                                    Percent			Covered/Total
+
+Account                                               100.00% covered     1/1
+AccountEnricher                                       100.00% covered     11/11
+AccountFilter                                         96.15% covered      25/26
+AccountRepository                                     0.00% covered       0/14
+AccountTH                                             90.00% covered      18/20
+AccountValidator                                      71.43% covered      5/7
+BrazilianDocumentValidator                            50.00% covered      23/46
+Customer                                              0.00% covered       0/15
+GetAddressOubountService                              0.00% covered       0/9
+GetAddressOutboundService                             0.00% covered       0/9
+SpecialCustomer                                       0.00% covered       0/5
+TriggerHandler                                        34.95% covered      36/103
+
+Overall coverage:                                     44.74% covered      119/266
