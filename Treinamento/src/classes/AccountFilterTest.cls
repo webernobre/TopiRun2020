@@ -60,7 +60,7 @@ public class AccountFilterTest {
         System.assertNotEquals(account.size(), filteredAccounts.size());
 
         List<Event> resultEvents = [SELECT Description, Subject, StartDateTime
-                                    ,EndDateTime, WhatId, ContactType__c FROM Event WHERE WhatId IN :filteredAccounts];
+                                    ,EndDateTime, WhatId, ContactType__c FROM Event WHERE WhatId IN :account];
         System.assertEquals(resultEvents.size(), filteredAccounts.size());
 
 
