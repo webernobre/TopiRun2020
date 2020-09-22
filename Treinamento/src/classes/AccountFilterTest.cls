@@ -24,15 +24,19 @@ public class AccountFilterTest {
         System.assertEquals(accounts.size(), filteredAccounts.size());
 
         Map<Id,Account> oldAccounts = new Map<Id,Account> (accounts);
+        filteredAccounts = filter.filterByChangedDocumentNumber(accounts, oldAccounts);
+        System.assertNotEquals(accounts.size(), filteredAccounts.size());
 
         Account changedAccount = accounts.get(0).clone(true, true, true, true);
-        changedAccount.DocumentNumber__c = 'X';
+        changedAccount.DocumentNumber__c = '94108232000101';
+        update changedAccount;
         oldAccounts.put(changedAccount.Id, changedAccount);
         
         filteredAccounts = filter.filterByChangedDocumentNumber(accounts, oldAccounts);
+        System.assert( filteredAccounts.size() == 1 );     
 
+    
         
-        System.assert( filteredAccounts.size() == 1 );
 
 
         accounts = new List<Account>();
