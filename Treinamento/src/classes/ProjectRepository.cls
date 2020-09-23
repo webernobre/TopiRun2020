@@ -14,4 +14,18 @@ public with sharing class ProjectRepository {
         
     }
 
+    virtual
+    public Project__c findById(String id){
+        List<Project__c> projects = findByIds(new List<String> {id});
+        return !projects.isEmpty() ? projects.get(0) : null;
+    }
+
+    virtual
+    public List<Project__c> findByIds(List<String> ids){
+        return [SELECT Id, Name, ProjectName__c
+                        ,ExternalId__c, startDate__c, endDate__c 
+                FROM Project__c
+                WHERE Id In :ids];
+    }
+
 }

@@ -1,5 +1,5 @@
 /**
- * @author walmeida - teste git
+ * @author walmeida
  */
 public class AccountFilter {
 
