@@ -1,4 +1,7 @@
 public class AccountEnricher {
+
+    EventRepository eventRepository = new EventRepository();
+
     public void createEventOnAccount(List<Account> newAccounts){
         List<Event> event = new List<Event>();
         for (Account account: newAccounts){
@@ -11,7 +14,8 @@ public class AccountEnricher {
                                 ContactType__c = 'Telefônico'
                                 ));
         }
-        insert event;
+
+        eventRepository.create(event);
 
         
     }
