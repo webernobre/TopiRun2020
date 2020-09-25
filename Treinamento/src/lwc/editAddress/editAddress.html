@@ -2,32 +2,32 @@
     <div class="slds-grid slds-wrap slds-var-p-around_small">
 
         <div class="slds-col slds-size_2-of-3">
-            <c-search-zip-code></c-search-zip-code>
+            <c-search-zip-code zip-code={address.zipcode} onsearchedaddress={handleSearchedAddress}></c-search-zip-code>
         </div>
         <div class="slds-col slds-size_3-of-3">
-            <lightning-input label="Endereço" name="address" type="text" maxlenght="255" required>
+            <lightning-input label="Endereço" name="address" type="text" maxlenght="255" value={address.street} required>
             </lightning-input>
         </div>
         <div class="slds-col slds-size_2-of-3 slds-var-p-right_small">
-            <lightning-input label="Cidade" name="city" type="text"
+            <lightning-input label="Cidade" name="city" type="text" value={address.city}
                             maxlenght="255"
                             required>
                             
             </lightning-input>
         </div>
         <div class="slds-col slds-size_1-of-3 slds-var-p-right_small">
-            <lightning-input label="Numero" name="streetNumber" type="text"
+            <lightning-input label="Numero" name="streetNumber" type="text" value={address.streetNumber}
                             maxlenght="20"
                             required>
             </lightning-input>
         </div>
         <div class="slds-col slds-size_2-of-3 slds-var-p-right_small">
-            <lightning-input label="Complemento" name="addressAditionalInfo" type="text"
+            <lightning-input label="Complemento" name="addressAditionalInfo" type="text" value={address.streetAditionalInfo}
                             maxlenght="255">
             </lightning-input>
         </div>
         <div class="slds-col slds-size_1-of-3 slds-var-p-right_small">
-            <lightning-input label="Estado" name="state" type="text"
+            <lightning-input label="Estado" name="state" type="text" value={address.state}
                             maxlenght="255">
             </lightning-input>
         </div>

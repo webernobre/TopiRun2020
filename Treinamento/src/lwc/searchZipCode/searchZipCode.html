@@ -1,7 +1,9 @@
 <template>
     <div>
     <lightning-input name="zipcode"
-                    pattern="([0-9]{5}-[0-9]{3}|[0-9]{8})"
+                    value={zipCode}
+                    pattern="([0-9]{5}-[0-9]{3})"
+                    onblur={handleBlur}
                     max-lenght="9"
                     message-when-bad-input="Digite um cep válido"
                     label="Cep"
