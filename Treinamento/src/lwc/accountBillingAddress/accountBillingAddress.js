@@ -16,7 +16,7 @@ export default class AccountBillingAddress extends LightningElement {
             streetAditionalInfo :'apto 984',
             city : 'Joinville',
             state : 'SC',
-            zipcode :'12252700'
+            zipCode :'12252-700'
         }
     }
 
@@ -26,6 +26,11 @@ export default class AccountBillingAddress extends LightningElement {
 
     renderedCallback(){
         console.log('renderedCallback');
+    }
+
+    handleChangedAddress(event){
+        this.billingAddress = event.detail;
+        console.log('billingaddress changed');
     }
 
 }

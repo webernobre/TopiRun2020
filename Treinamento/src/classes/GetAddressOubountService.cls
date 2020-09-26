@@ -16,7 +16,8 @@ public class GetAddressOubountService {
     private ViaCepAddressResponse findViaCepAddress ( String zipCode ) {
 
         HttpRequest request = new HttpRequest();
-        request.setEndpoint('http://viacep.com.br/ws/' + zipCode + '/json/');
+        //request.setEndpoint('http://viacep.com.br/ws/' + zipCode + '/json/');
+        request.setEndpoint('https://5f6e7e45adc24200166e08c9.mockapi.io/ViaCep/viacepservice');
         request.setMethod('GET');
         request.setHeader('Content-Type', 'application/json');
 
