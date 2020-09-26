@@ -4,6 +4,18 @@
 @isTest
 public class ProjectFixtureFactory {
 
+    public static Project__c newProject(ProjectSyncRequest project) {
+        return new Project__c(
+                            ProjectName__c = project.name
+                            ,startDate__c = project.startDate
+                            ,endDate__c = project.endDate
+                            ,Status__c = project.status
+                            ,Budget__c = project.budget
+                            ,Type__c = 'Enterprise'
+                            
+        );
+    }
+
     public static Project__c newProject(String name, Date startDate, Date endDate) {
         return new Project__c(
                             ProjectName__c = name

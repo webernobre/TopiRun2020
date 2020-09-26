@@ -22,8 +22,8 @@ public with sharing class ProjectRepository {
 
     virtual
     public List<Project__c> findByIds(List<String> ids){
-        return [SELECT Id, Name, ProjectName__c
-                        ,ExternalId__c, startDate__c, endDate__c 
+        return [SELECT ProjectName__c, Id, Status__c, 
+                        startDate__c, endDate__c, Budget__c 
                 FROM Project__c
                 WHERE Id In :ids];
     }
