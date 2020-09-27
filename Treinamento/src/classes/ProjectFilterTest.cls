@@ -5,7 +5,7 @@
 public class ProjectFilterTest {
 
     @isTest
-    static void filterByTypeEnterpiseAndStatusChangedTest() {
+    public static void filterByTypeEnterpiseAndStatusChangedTest() {
         List<Project__c> newProjects = new List<Project__c>();
         List<Project__c> filteredProjects = new List<Project__c>();
         Map<Id,Project__c> oldProjects = new Map<Id,Project__c>() ;
@@ -21,7 +21,8 @@ public class ProjectFilterTest {
         newProjects.add(ProjectFixtureFactory.newProject(project));
         newProjects.add(ProjectFixtureFactory.newProject('Test 1', Date.today(), Date.today().addDays(1)));
         newProjects.add(ProjectFixtureFactory.newDefaultProject());
-        
+        project.status = 'Finalizado';
+        newProjects.add(ProjectFixtureFactory.newProject(project));
 
         filteredProjects = filter.filterByTypeEnterpiseAndStatusChanged(newProjects, null);
         System.assertNotEquals(newProjects.size(), filteredProjects.size());

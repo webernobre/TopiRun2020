@@ -6,13 +6,6 @@ public with sharing class ProjectRepository {
         return project;
         
     }
-    
-    virtual
-    public List<Project__c> create(List<Project__c> projects){
-        insert projects;
-        return projects;
-        
-    }
 
     virtual
     public List<Project__c> store(List<Project__c> projects){
@@ -21,12 +14,6 @@ public with sharing class ProjectRepository {
         
     }
 
-    virtual
-    public Project__c store(Project__c project){
-        update project;
-        return project;
-        
-    }
 
     virtual
     public Project__c findById(String id){

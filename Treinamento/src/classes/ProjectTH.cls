@@ -8,7 +8,6 @@ public virtual with sharing class ProjectTH extends TriggerHandler {
     Map<Id,Project__c> oldProjects;
 
     ProjectFilter filter;
-    PutProjectOutboundService service;
     ProjectRepository repository;
 
     public ProjectTH () {
@@ -20,7 +19,6 @@ public virtual with sharing class ProjectTH extends TriggerHandler {
         this.newProjects = newProjects;
 
         this.filter = new ProjectFilter();
-        this.service = new PutProjectOutboundService();
         this.repository = new ProjectRepository();
         
     }
@@ -30,17 +28,25 @@ public virtual with sharing class ProjectTH extends TriggerHandler {
         publishProjectSync();
     }
 
+    override
+    public void afterUpdate() {
+        if(!System.isFuture()){
+            publishProjectSync();
+        }
+    }
+
     virtual
     public void publishProjectSync(){
-        List<Project__c> projectsToUpdate = new List<Project__c>();
-        Project__c projectOutbound;
+
         List<Project__c> filteredProjects = this.filter.filterByTypeEnterpiseAndStatusChanged(newProjects, oldProjects);
-        for (Project__c project : filteredProjects) {
-            projectOutbound = this.service.publishProject(project.Id);
-            projectsToUpdate.add(projectOutbound);
+        if(filteredProjects.size()>0){
+            List<Id> projectIds = new List<Id>();
+            for(Project__c project: filteredProjects){
+                projectIds.add(project.Id);
+            }
+            PutProjectOutboundAsync.updateProjectOnExternalSystem(projectIds);
         }
-        
-        repository.store(projectsToUpdate);
+
     }
 
 }

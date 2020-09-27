@@ -46,5 +46,10 @@ public class ProjectFixtureFactory {
         return project;
     }
 
+    public static Project__c updateProject(Project__c project) {
+        update project;
+        return project;
+    }
+
 
 }

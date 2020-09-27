@@ -42,5 +42,26 @@ public class AccountFilterTest {
 
     }
 
+    @isTest
+    static void filterByCategoryAndAnualRevenueTest(){
+
+        List<Account> account = new List<Account>();
+        AccountFilter filter = new AccountFilter();
+        EventRepository eventRepository = new EventRepository();
+
+        account.add(AccountFixtureFactory.createAccount('Weber 01','Standard', 2000000));
+        account.add(AccountFixtureFactory.createAccount('Weber 02','Premium', 2000000));
+        account.add(AccountFixtureFactory.createAccount('Weber 03','Premium', 1000000));
+        account.add(AccountFixtureFactory.createAccount('Weber 04','Premium', 100000));
+        account.add(AccountFixtureFactory.createAccount('Weber 04','Premium',null));
+        List<Account> filteredAccounts = filter.filterByCategoryAndAnualRevenue(account);
+        System.assertNotEquals(account.size(), filteredAccounts.size());
+
+        List<Event> resultEvents = eventRepository.findByAccount(account);
+        System.assertEquals(resultEvents.size(), filteredAccounts.size());
+
+
+    }
+
 
 }

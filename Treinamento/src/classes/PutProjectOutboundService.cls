@@ -1,19 +1,22 @@
 /**
  * @author walmeida
  */
-public class PutProjectOutboundService {
+public virtual class PutProjectOutboundService {
 
     ProjectSyncTransformer transformer;
+    
     
     public PutProjectOutboundService(){
         transformer = new ProjectSyncTransformer();
     }
 
+    virtual
     public Project__c publishProject(String projectId){
         return transformer.toProject(projectId, putProjectSyncService(projectId));
     }
 
-    private ProjectSyncResponse putProjectSyncService ( String projectId ) {
+    virtual
+    public ProjectSyncResponse putProjectSyncService ( String projectId ) {
 
         HttpRequest request = new HttpRequest();
         Http http = new Http();
