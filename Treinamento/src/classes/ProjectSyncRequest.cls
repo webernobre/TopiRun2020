@@ -6,9 +6,5 @@ public class ProjectSyncRequest {
     public Date endDate; 
     public Double budget;
     
-    override
-    public String toString(){
-        return JSON.serialize(this);
-    }
 
 }

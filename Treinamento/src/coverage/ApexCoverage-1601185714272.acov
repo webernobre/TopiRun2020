@@ -13,7 +13,6 @@ GetAddressOubountService                              100.00% covered     15/15
 ProjectController                                     100.00% covered     22/22
 ProjectFilter                                         100.00% covered     16/16
 ProjectRepository                                     100.00% covered     12/12
-ProjectSyncRequest                                    0.00% covered       0/2
 ProjectSyncTransformer                                100.00% covered     25/25
 ProjectTH                                             94.74% covered      18/19
 ProjectTransformer                                    100.00% covered     5/5
@@ -26,4 +25,4 @@ TriggerHandler                                        39.81% covered      41/103
 ZipCodeAddress                                        100.00% covered     2/2
 ZipCodeAddressTransformer                             100.00% covered     7/7
 
-Overall coverage:                                     68.22% covered      279/409
+Overall coverage:                                     68.55% covered      279/407
