@@ -20,8 +20,8 @@ public class PutProjectOutboundService {
         ProjectSyncRequest projectRequest = new ProjectSyncRequest();        
         ProjectRepository projectRepository = new ProjectRepository();
         
-        //request.setEndpoint('https://run.mocky.io/v3/58d750c1-31bf-45ae-b361-bedecacf55a2');//mock sucesso
-        request.setEndpoint('https://run.mocky.io/v3/9e25f0c0-b57a-4bdd-bcda-93af84725435');//mock erro
+        request.setEndpoint('https://run.mocky.io/v3/58d750c1-31bf-45ae-b361-bedecacf55a2');//mock sucesso
+        //request.setEndpoint('https://run.mocky.io/v3/9e25f0c0-b57a-4bdd-bcda-93af84725435');//mock erro
         request.setMethod('PUT');
         request.setHeader('Content-Type', 'application/json');
         request.setBody(JSON.serialize(transformer.generateRequest(projectRepository.findById(projectId))));

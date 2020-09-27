@@ -16,6 +16,19 @@ public class ProjectFixtureFactory {
         );
     }
 
+    public static Project__c newDefaultProject() {
+        return new Project__c(
+                            ProjectName__c = 'Projeto Default'
+                            ,startDate__c = Date.today()
+                            ,endDate__c = Date.today().addDays(10)
+                            ,Status__c = 'Iniciado'
+                            ,Budget__c = 1000.00
+                            ,Type__c = 'Teste'
+                            
+        );
+    }
+
+
     public static Project__c newProject(String name, Date startDate, Date endDate) {
         return new Project__c(
                             ProjectName__c = name

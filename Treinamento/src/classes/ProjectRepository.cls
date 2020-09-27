@@ -15,6 +15,20 @@ public with sharing class ProjectRepository {
     }
 
     virtual
+    public List<Project__c> store(List<Project__c> projects){
+        update projects;
+        return projects;
+        
+    }
+
+    virtual
+    public Project__c store(Project__c project){
+        update project;
+        return project;
+        
+    }
+
+    virtual
     public Project__c findById(String id){
         List<Project__c> projects = findByIds(new List<String> {id});
         return !projects.isEmpty() ? projects.get(0) : null;

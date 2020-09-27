@@ -67,10 +67,10 @@ public class AccountFixtureFactory {
 
         Map<String, SObject> records = new Map<String, SObject>();
 
-        City__c city = CityFixtureFactory.createCity ();
+        City__c city = CityFixtureFactory.createCity();
         records.put ('city-sp', city);
         
-        Cnae__c cnae = CnaeFixtureFactory.createCnae ();
+        Cnae__c cnae = CnaeFixtureFactory.createCnae();
         records.put ('cnae', cnae);
         
         Account account = createAccount('Bisso Account', '42364324000159', city, cnae);
