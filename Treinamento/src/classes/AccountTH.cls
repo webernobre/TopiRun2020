@@ -55,8 +55,8 @@ public virtual with sharing class AccountTH extends TriggerHandler {
     virtual
     public void validateCategoryAndAnualRevenue () {
 
-        List<Account> filteredAccounts = this.filter.filterByCategoryAndAnualRevenue(newAccounts);
-        this.enricher.createEventOnAccount(filteredAccounts);
+        List<Account> filteredAccounts = this.filter.filterByCategoryAndAnualRevenue(newAccounts,'Premium',1000000);
+        this.enricher.createEventPresentationOnAccount(filteredAccounts);
 
     }
 

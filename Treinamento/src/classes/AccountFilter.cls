@@ -31,29 +31,17 @@ public class AccountFilter {
         return filteredAccounts;
     }
 
-    public List<Account> filterByCategoryAndAnualRevenue (List<Account> newAccounts) {
+    public List<Account> filterByCategoryAndAnualRevenue (List<Account> newAccounts, 
+                                                          String category, 
+                                                          Double annualRevenue) {
         
         List<Account> filteredAccounts = new List<Account> ();
         
         for ( Account account : newAccounts ) {
 
-            if ( String.isEmpty(account.Category__c) ){
-                continue;
+            if (account.Category__c == category && account.AnnualRevenue > annualRevenue){
+                filteredAccounts.add( account );
             }
-
-            if ( account.AnnualRevenue == null ){
-                continue;
-            }
-
-
-            if ( account.Category__c <> 'Premium') {
-                continue;
-            } 
-            if (account.AnnualRevenue < 1000000 ){
-                continue;
-            }
-            
-            filteredAccounts.add( account );
 
         }
 

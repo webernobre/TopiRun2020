@@ -28,8 +28,14 @@ public class AccountFilterTest {
         oldAccounts.put(changedAccount.Id, changedAccount);
         
         filteredAccounts = filter.filterByChangedDocumentNumber(accounts, oldAccounts);
-
         System.assert( filteredAccounts.size() == 1 );
+
+        changedAccount = accounts.get(0).clone(true, true, true, true);
+        oldAccounts.clear();
+        oldAccounts.put(changedAccount.Id, changedAccount);
+        filteredAccounts = filter.filterByChangedDocumentNumber(accounts, oldAccounts);
+
+        System.assert( filteredAccounts.size() == 0 );
 
 
         accounts = new List<Account>();
@@ -54,7 +60,7 @@ public class AccountFilterTest {
         account.add(AccountFixtureFactory.createAccount('Weber 03','Premium', 1000000));
         account.add(AccountFixtureFactory.createAccount('Weber 04','Premium', 100000));
         account.add(AccountFixtureFactory.createAccount('Weber 04','Premium',null));
-        List<Account> filteredAccounts = filter.filterByCategoryAndAnualRevenue(account);
+        List<Account> filteredAccounts = filter.filterByCategoryAndAnualRevenue(account,'Premium',1000000);
         System.assertNotEquals(account.size(), filteredAccounts.size());
 
         List<Event> resultEvents = eventRepository.findByAccount(account);
