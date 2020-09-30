@@ -16,7 +16,7 @@ public virtual with sharing class ProjectTH extends TriggerHandler {
     public ProjectTH (List<Project__c> newProjects , Map<Id,Project__c> oldProjects) {
         
         this.newProjects = newProjects;
-        this.newProjects = newProjects;
+        this.oldProjects = oldProjects;
 
         this.filter = new ProjectFilter();
         this.repository = new ProjectRepository();
@@ -24,15 +24,10 @@ public virtual with sharing class ProjectTH extends TriggerHandler {
     }
 
     override
-    public void afterInsert() {
-        publishProjectSync();
-    }
-
-    override
     public void afterUpdate() {
-        if(!System.isFuture()){
+
             publishProjectSync();
-        }
+            
     }
 
     virtual

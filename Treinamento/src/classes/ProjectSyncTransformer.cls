@@ -16,7 +16,6 @@ public class ProjectSyncTransformer {
     }
     
     public Project__c toProject(String projectId, ProjectSyncResponse projectResponse){
-        if(projectResponse.errorMessage == null){}
         Project__c project = new Project__c();
         project.ExternalId__c = projectResponse.projectId;
         project.Id = projectId;
@@ -24,7 +23,7 @@ public class ProjectSyncTransformer {
         project.SynchronizationStatus__c = projectResponse.errorMessage == null 
                                             ? 'Integrado com sucesso' 
                                             : 'Erro na sincronização de projetos';
-        project.LastSyncDate__c = Date.today();
+        project.LastSyncDate__c = Datetime.now();
 
         return project;
 

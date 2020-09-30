@@ -10,13 +10,15 @@ public class PutProjectOutboundServiceTest {
         
         ProjectSyncRequest projectRequest = new ProjectSyncRequest();
         projectRequest.name = 'TopiRun2020';
-        projectRequest.status = 'Iniciado';
+        projectRequest.status = 'Planejado';
         projectRequest.startDate = Date.valueOf('2020-01-01');
         projectRequest.endDate = Date.valueOf('2020-12-01');
         projectRequest.budget = 200000.00;
         
         Project__c project = ProjectFixtureFactory.newProject(projectRequest);
         project = ProjectFixtureFactory.createProject(project);
+        project.Status__c='Iniciado';
+        project = ProjectFixtureFactory.updateProject(project);
         
         Test.setMock(HttpCallOutMock.class, new ProjectSyncFailHttpMock(payloaderror));
         PutProjectOutboundService service = new PutProjectOutboundService();

@@ -10,15 +10,11 @@ public class ProjectFilter {
 
         for ( Project__c project : newProjects ) {
             
-            if ( String.isEmpty(project.Type__c) ) {
-                continue;
-            } 
-
-            if(project.Status__c<>'Iniciado'){
+            if(project.Status__c!='Iniciado'){
                 continue;
             }
 
-            if (project.Type__c<>'Enterprise') {
+            if (project.Type__c!='Enterprise') {
                 continue;
             }
 

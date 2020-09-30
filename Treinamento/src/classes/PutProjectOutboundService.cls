@@ -16,7 +16,7 @@ public virtual class PutProjectOutboundService {
     }
 
     virtual
-    public ProjectSyncResponse putProjectSyncService ( String projectId ) {
+    private ProjectSyncResponse putProjectSyncService ( String projectId ) {
 
         HttpRequest request = new HttpRequest();
         Http http = new Http();
@@ -35,7 +35,7 @@ public virtual class PutProjectOutboundService {
 
         String payload = response.getBody();
 
-        if (response.getStatusCode()<>200){
+        if (response.getStatusCode()!=200){
             return transformer.handleError(projectId, ( ProjectSyncResponse ) JSON.deserialize( payload , ProjectSyncResponse.class ));
         }
         
